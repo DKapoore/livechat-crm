@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+<title>Live Chat CRM — Admin</title>
+<link rel="manifest" href="/admin/manifest.json">
+<meta name="theme-color" content="#16a34a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="LiveChat CRM">
+<link rel="apple-touch-icon" href="/admin/icons/apple-touch-icon.png">
+<link rel="icon" href="/admin/icons/icon-192.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="login-screen" class="login-screen">
+  <div class="login-card">
+    <div class="login-logo">💬 Live Chat CRM</div>
+    <p class="login-sub">Sign in to your dashboard</p>
+    <div id="install-banner-login" class="install-banner hidden">
+      <span>📲 Install this as an app for the best mobile experience</span>
+      <button id="install-btn-login" class="btn primary" type="button">Install App</button>
+    </div>
+    <div id="ios-install-banner-login" class="install-banner hidden">
+      <span>📲 On iPhone: tap the Share icon <strong>⬆️</strong> below, then "Add to Home Screen"</span>
+    </div>
+    <form id="login-form">
+      <label>Email</label>
+      <input type="email" id="login-email" value="admin@demo.com" required />
+      <label>Password</label>
+      <input type="password" id="login-password" value="admin123" required />
+      <button type="submit">Sign in</button>
+      <div id="login-error" class="login-error"></div>
+    </form>
+    <p class="login-hint">Demo: admin@demo.com / admin123 &nbsp;·&nbsp; agent@demo.com / agent123</p>
+  </div>
+</div>
+
+<div id="app" class="app hidden">
+  <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Menu">☰</button>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">💬 LiveChat<span>CRM</span></div>
+    <nav id="nav">
+      <a href="#dashboard" data-page="dashboard">📊 Dashboard</a>
+      <a href="#inbox" data-page="inbox">📥 Inbox</a>
+      <a href="#queue" data-page="queue">⏳ Waiting Queue</a>
+      <a href="#assigned" data-page="assigned">💼 Assigned Chats</a>
+      <a href="#closed" data-page="closed">✅ Closed Chats</a>
+      <a href="#visitors" data-page="visitors">👥 Visitors</a>
+      <a href="#agents" data-page="agents" data-admin-only="1">🧑‍💻 Agents</a>
+      <a href="#departments" data-page="departments" data-admin-only="1">🏷️ Departments</a>
+      <a href="#bot-flow" data-page="bot-flow" data-admin-only="1">🤖 Bot Flow</a>
+      <a href="#customizer" data-page="customizer" data-admin-only="1">🎨 Widget Customizer</a>
+      <a href="#settings" data-page="settings" data-admin-only="1">⚙️ Settings</a>
+      <a href="#account" data-page="account">🔐 My Account</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div id="me-name"></div>
+      <button id="install-btn-sidebar" class="btn hidden" style="width:100%;margin-bottom:8px;">📲 Install App</button>
+      <button id="notif-btn" class="btn" style="width:100%;margin-bottom:8px;">🔔 Enable notifications</button>
+      <button id="logout-btn">Log out</button>
+    </div>
+  </aside>
+  <div id="sidebar-backdrop" class="sidebar-backdrop"></div>
+
+  <main class="content">
+    <div id="page-root"></div>
+  </main>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
